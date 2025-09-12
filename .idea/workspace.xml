@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="" />
+    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="add initial project structure with React components, context, and configuration files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +13,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "frashid17"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/frashid17/luxebyzari.git",
+    "accountId": "af485c0f-9f13-4bdb-a880-65397ce22489"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
@@ -50,11 +62,114 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1757635570059</updated>
-      <workItem from="1757635571167" duration="1821000" />
+      <workItem from="1757635571167" duration="2436000" />
     </task>
+    <task id="LOCAL-00001" summary="add About component with introductory content">
+      <option name="closed" value="true" />
+      <created>1757637936191</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637936191</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add Wishlist component to display wishlist items">
+      <option name="closed" value="true" />
+      <created>1757637947565</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637947565</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add Tailwind CSS and Vite configuration files">
+      <option name="closed" value="true" />
+      <created>1757637962494</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637962494</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add App.css for styling and animations">
+      <option name="closed" value="true" />
+      <created>1757637979997</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637979997</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add api.js for API integration">
+      <option name="closed" value="true" />
+      <created>1757637987603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637987603</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add App component with routing and context providers">
+      <option name="closed" value="true" />
+      <created>1757637992994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637992994</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add AuthContext for user authentication and state management">
+      <option name="closed" value="true" />
+      <created>1757637998542</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757637998542</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add AuthModal component for authentication modal UI">
+      <option name="closed" value="true" />
+      <created>1757638007433</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1757638007433</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add .gitignore file to exclude logs, node_modules, and editor files">
+      <option name="closed" value="true" />
+      <created>1757638014010</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1757638014010</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add Cart and CartContext components for shopping cart functionality">
+      <option name="closed" value="true" />
+      <created>1757638022022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1757638022022</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add initial project structure with React components, context, and configuration files">
+      <option name="closed" value="true" />
+      <created>1757638030334</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757638030334</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add About component with introductory content" />
+    <MESSAGE value="add Wishlist component to display wishlist items" />
+    <MESSAGE value="add Tailwind CSS and Vite configuration files" />
+    <MESSAGE value="add App.css for styling and animations" />
+    <MESSAGE value="add api.js for API integration" />
+    <MESSAGE value="add App component with routing and context providers" />
+    <MESSAGE value="add AuthContext for user authentication and state management" />
+    <MESSAGE value="add AuthModal component for authentication modal UI" />
+    <MESSAGE value="add .gitignore file to exclude logs, node_modules, and editor files" />
+    <MESSAGE value="add Cart and CartContext components for shopping cart functionality" />
+    <MESSAGE value="add initial project structure with React components, context, and configuration files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initial project structure with React components, context, and configuration files" />
   </component>
 </project>
