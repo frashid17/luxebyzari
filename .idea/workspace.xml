@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="update project configuration and add task metadata for initial components">
-      <change afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/productController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/orders.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/payments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/products.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/scripts/seed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/authService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/auth/AuthModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/AuthModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/cart/CartItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/cart/CartItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Wishlist.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Wishlist.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/productService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/constants.js" afterDir="false" />
+    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="add initial API routes, environment configuration, and product model">
+      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +70,7 @@
       <updated>1757635570059</updated>
       <workItem from="1757635571167" duration="2436000" />
       <workItem from="1757638528637" duration="83000" />
-      <workItem from="1757643003031" duration="10991000" />
+      <workItem from="1757643003031" duration="11512000" />
     </task>
     <task id="LOCAL-00001" summary="add About component with introductory content">
       <option name="closed" value="true" />
@@ -197,7 +168,23 @@
       <option name="project" value="LOCAL" />
       <updated>1757638551603</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add .env files to .gitignore to exclude environment configuration">
+      <option name="closed" value="true" />
+      <created>1757780176838</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780176838</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add initial API routes, environment configuration, and product model">
+      <option name="closed" value="true" />
+      <created>1757780193859</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780193859</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +203,8 @@
     <MESSAGE value="add Cart and CartContext components for shopping cart functionality" />
     <MESSAGE value="add initial project structure with React components, context, and configuration files" />
     <MESSAGE value="update project configuration and add task metadata for initial components" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project configuration and add task metadata for initial components" />
+    <MESSAGE value="add .env files to .gitignore to exclude environment configuration" />
+    <MESSAGE value="add initial API routes, environment configuration, and product model" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initial API routes, environment configuration, and product model" />
   </component>
 </project>
