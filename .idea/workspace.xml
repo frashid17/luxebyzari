@@ -4,7 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="add initial project structure with React components, context, and configuration files" />
+    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="update project configuration and add task metadata for initial components">
+      <change afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/controllers/productController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/Order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/Product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/orders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/payments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/products.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/scripts/seed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/authService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/auth/AuthModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/AuthModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/cart/CartItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/cart/CartItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Wishlist.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Wishlist.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/productService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/constants.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +45,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "frashid17"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;frashid17&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/frashid17/luxebyzari.git",
-    "accountId": "af485c0f-9f13-4bdb-a880-65397ce22489"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/frashid17/luxebyzari.git&quot;,
+    &quot;accountId&quot;: &quot;af485c0f-9f13-4bdb-a880-65397ce22489&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="32ZkdbKW96NXKYXNQJHPEdBs2V8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,13 +70,16 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/fahimrashid/Desktop/luxebyzari",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -63,6 +98,8 @@
       <option name="presentableId" value="Default" />
       <updated>1757635570059</updated>
       <workItem from="1757635571167" duration="2436000" />
+      <workItem from="1757638528637" duration="83000" />
+      <workItem from="1757643003031" duration="10991000" />
     </task>
     <task id="LOCAL-00001" summary="add About component with introductory content">
       <option name="closed" value="true" />
@@ -152,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757638030334</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update project configuration and add task metadata for initial components">
+      <option name="closed" value="true" />
+      <created>1757638551603</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1757638551603</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +215,7 @@
     <MESSAGE value="add .gitignore file to exclude logs, node_modules, and editor files" />
     <MESSAGE value="add Cart and CartContext components for shopping cart functionality" />
     <MESSAGE value="add initial project structure with React components, context, and configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add initial project structure with React components, context, and configuration files" />
+    <MESSAGE value="update project configuration and add task metadata for initial components" />
+    <option name="LAST_COMMIT_MESSAGE" value="update project configuration and add task metadata for initial components" />
   </component>
 </project>

@@ -102,7 +102,7 @@ luxebyzari/
 │   │   ├── auth.js
 │   │   ├── products.js
 │   │   ├── orders.js
-│   │   ├── users.js
+│   │   ├── User.js
 │   │   └── payments.js
 │   ├── 📁 middleware/                    # Custom Middleware
 │   │   ├── auth.js

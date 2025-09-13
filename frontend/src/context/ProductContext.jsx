@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
-import { SAMPLE_PRODUCTS } from '../utils/constants';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { productService } from '../services/productService';
+import toast from 'react-hot-toast';
 
 const ProductContext = createContext();
 
@@ -12,36 +13,126 @@ export const useProducts = () => {
 };
 
 export const ProductProvider = ({ children }) => {
-    const [products] = useState(SAMPLE_PRODUCTS);
-    const [filteredProducts, setFilteredProducts] = useState(SAMPLE_PRODUCTS);
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [featuredProducts, setFeaturedProducts] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const filterProducts = (category, query) => {
-        let filtered = products;
+    // Fetch all products
+    const fetchProducts = async (params = {}) => {
+        try {
+            setLoading(true);
+            setError(null);
 
-        if (category !== 'all') {
-            filtered = filtered.filter(product => product.category === category);
+            const response = await productService.getProducts(params);
+
+            if (response.success) {
+                setProducts(response.data);
+                setFilteredProducts(response.data);
+            } else {
+                throw new Error(response.message || 'Failed to fetch products');
+            }
+        } catch (error) {
+            console.error('Fetch products error:', error);
+            setError(error.response?.data?.message || 'Failed to load products');
+            toast.error('Failed to load products');
+        } finally {
+            setLoading(false);
         }
-
-        if (query) {
-            filtered = filtered.filter(product =>
-                product.name.toLowerCase().includes(query.toLowerCase()) ||
-                product.description.toLowerCase().includes(query.toLowerCase())
-            );
-        }
-
-        setFilteredProducts(filtered);
     };
+
+    // Fetch featured products
+    const fetchFeaturedProducts = async () => {
+        try {
+            const response = await productService.getFeaturedProducts();
+
+            if (response.success) {
+                setFeaturedProducts(response.data);
+            }
+        } catch (error) {
+            console.error('Fetch featured products error:', error);
+        }
+    };
+
+    // Filter products based on search and category
+    const filterProducts = async (category = selectedCategory, query = searchQuery) => {
+        try {
+            setLoading(true);
+            setError(null);
+
+            const params = {};
+
+            if (category !== 'all') {
+                params.category = category;
+            }
+
+            if (query) {
+                params.search = query;
+            }
+
+            const response = await productService.getProducts(params);
+
+            if (response.success) {
+                setFilteredProducts(response.data);
+            }
+        } catch (error) {
+            console.error('Filter products error:', error);
+            setError('Failed to filter products');
+            toast.error('Failed to filter products');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Get single product
+    const getProduct = async (id) => {
+        try {
+            const response = await productService.getProduct(id);
+
+            if (response.success) {
+                return response.data;
+            } else {
+                throw new Error(response.message || 'Product not found');
+            }
+        } catch (error) {
+            console.error('Get product error:', error);
+            toast.error('Failed to load product');
+            throw error;
+        }
+    };
+
+    // Initial load
+    useEffect(() => {
+        fetchProducts();
+        fetchFeaturedProducts();
+    }, []);
+
+    // Filter when search query or category changes
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            filterProducts(selectedCategory, searchQuery);
+        }, 300); // Debounce search
+
+        return () => clearTimeout(timeoutId);
+    }, [searchQuery, selectedCategory]);
 
     const value = {
         products,
         filteredProducts,
+        featuredProducts,
         searchQuery,
         setSearchQuery,
         selectedCategory,
         setSelectedCategory,
-        filterProducts
+        loading,
+        error,
+        fetchProducts,
+        fetchFeaturedProducts,
+        filterProducts,
+        getProduct
     };
 
     return (

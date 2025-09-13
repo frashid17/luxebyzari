@@ -4,8 +4,7 @@ import { useProducts } from '../context/ProductContext';
 import ProductGrid from '../components/product/ProductGrid';
 
 const Home = () => {
-    const { products } = useProducts();
-    const featuredProducts = products.filter(product => product.featured);
+    const { featuredProducts = [], loading } = useProducts();
 
     return (
         <div className="min-h-screen">
@@ -42,14 +41,18 @@ const Home = () => {
                             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                                 <div className="text-6xl mb-4 text-center">👠</div>
                                 <h3 className="text-2xl font-bold text-center mb-4">Premium Shoes</h3>
-                                <p className="text-gray-600 text-center">Step into elegance with our curated collection</p>
+                                <p className="text-gray-600 text-center">
+                                    Step into elegance with our curated collection
+                                </p>
                             </div>
                         </Link>
                         <Link to="/shop?category=bags" className="group">
                             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                                 <div className="text-6xl mb-4 text-center">👜</div>
                                 <h3 className="text-2xl font-bold text-center mb-4">Luxury Bags</h3>
-                                <p className="text-gray-600 text-center">Carry sophistication wherever you go</p>
+                                <p className="text-gray-600 text-center">
+                                    Carry sophistication wherever you go
+                                </p>
                             </div>
                         </Link>
                     </div>
@@ -64,7 +67,8 @@ const Home = () => {
                         <p className="text-gray-600">Handpicked items from our premium collection</p>
                     </div>
 
-                    <ProductGrid products={featuredProducts} />
+                    {/* ✅ ProductGrid now always gets an array */}
+                    <ProductGrid products={featuredProducts} loading={loading} />
 
                     <div className="text-center mt-12">
                         <Link to="/shop" className="btn btn-primary text-lg px-8 py-3">
