@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { authService } from '../services/authService';
 import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
@@ -17,58 +16,99 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [isInitialized, setIsInitialized] = useState(false);
 
-    // Initialize auth state from localStorage
+    // Initialize auth state
     useEffect(() => {
-        const initializeAuth = async () => {
+        console.log('🚀 AuthProvider initializing...');
+
+        const initAuth = async () => {
             try {
                 const token = localStorage.getItem('token');
                 const savedUser = localStorage.getItem('luxe_user');
 
+                console.log('🔍 Checking stored auth:', {
+                    hasToken: !!token,
+                    hasSavedUser: !!savedUser
+                });
+
                 if (token && savedUser) {
-                    setUser(JSON.parse(savedUser));
+                    const userData = JSON.parse(savedUser);
+                    console.log('👤 Setting user from storage:', userData);
+                    setUser(userData);
 
                     // Optionally verify token with backend
                     try {
-                        const response = await authService.getProfile();
-                        if (response.success) {
-                            setUser(response.user);
-                            localStorage.setItem('luxe_user', JSON.stringify(response.user));
+                        const response = await fetch('http://localhost:5001/api/auth/me', {
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                                'Content-Type': 'application/json'
+                            },
+                            credentials: 'include'
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.success) {
+                                console.log('✅ Token verified, updating user data:', data.user);
+                                setUser(data.user);
+                                localStorage.setItem('luxe_user', JSON.stringify(data.user));
+                            }
+                        } else {
+                            console.log('❌ Token verification failed:', response.status);
+                            // Token might be expired
+                            localStorage.removeItem('token');
+                            localStorage.removeItem('luxe_user');
+                            setUser(null);
                         }
                     } catch (error) {
-                        // Token might be expired, clear auth data
-                        console.error('Token verification failed:', error);
-                        localStorage.removeItem('token');
-                        localStorage.removeItem('luxe_user');
-                        setUser(null);
+                        console.log('❌ Token verification error:', error);
+                        // Keep the stored user data even if verification fails
                     }
+                } else {
+                    console.log('ℹ️ No stored authentication found');
                 }
             } catch (error) {
-                console.error('Auth initialization error:', error);
+                console.error('❌ Auth initialization error:', error);
             } finally {
                 setIsInitialized(true);
+                console.log('✅ Auth initialization complete');
             }
         };
 
-        initializeAuth();
+        initAuth();
     }, []);
 
     const login = async (email, password) => {
         try {
             setIsLoading(true);
+            console.log('🔐 Attempting login for:', email);
 
-            const response = await authService.login(email, password);
+            const response = await fetch('http://localhost:5001/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({ email, password }),
+            });
 
-            if (response.success) {
-                setUser(response.user);
-                toast.success(response.message || 'Login successful!');
+            const data = await response.json();
+            console.log('📝 Login response:', data);
+
+            if (data.success) {
+                console.log('✅ Login successful, storing user data:', data.user);
+                setUser(data.user);
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('luxe_user', JSON.stringify(data.user));
+                toast.success('Login successful!');
                 return true;
             } else {
-                toast.error(response.message || 'Login failed');
+                console.log('❌ Login failed:', data.message);
+                toast.error(data.message || 'Login failed');
                 return false;
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Login failed';
-            toast.error(errorMessage);
+            console.error('❌ Login error:', error);
+            toast.error('Login failed. Please try again.');
             return false;
         } finally {
             setIsLoading(false);
@@ -78,20 +118,35 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             setIsLoading(true);
+            console.log('📝 Attempting registration for:', email);
 
-            const response = await authService.register({ name, email, password });
+            const response = await fetch('http://localhost:5001/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({ name, email, password }),
+            });
 
-            if (response.success) {
-                setUser(response.user);
-                toast.success(response.message || 'Registration successful!');
+            const data = await response.json();
+            console.log('📝 Register response:', data);
+
+            if (data.success) {
+                console.log('✅ Registration successful, storing user data:', data.user);
+                setUser(data.user);
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('luxe_user', JSON.stringify(data.user));
+                toast.success('Registration successful!');
                 return true;
             } else {
-                toast.error(response.message || 'Registration failed');
+                console.log('❌ Registration failed:', data.message);
+                toast.error(data.message || 'Registration failed');
                 return false;
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Registration failed';
-            toast.error(errorMessage);
+            console.error('❌ Registration error:', error);
+            toast.error('Registration failed. Please try again.');
             return false;
         } finally {
             setIsLoading(false);
@@ -100,43 +155,31 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            setIsLoading(true);
+            console.log('🚪 Logging out...');
 
-            await authService.logout();
+            await fetch('http://localhost:5001/api/auth/logout', {
+                method: 'POST',
+                credentials: 'include',
+            });
+        } catch (error) {
+            console.error('❌ Logout API error:', error);
+        } finally {
+            // Always clear local state
+            console.log('🧹 Clearing auth data');
             setUser(null);
-
+            localStorage.removeItem('token');
+            localStorage.removeItem('luxe_user');
+            localStorage.removeItem('luxe_cart');
+            localStorage.removeItem('luxe_wishlist');
             toast.success('Logged out successfully');
-        } catch (error) {
-            console.error('Logout error:', error);
-            // Still clear local state even if API call fails
-            setUser(null);
-        } finally {
-            setIsLoading(false);
         }
     };
 
-    const updateProfile = async (userData) => {
-        try {
-            setIsLoading(true);
-
-            const response = await authService.updateProfile(userData);
-
-            if (response.success) {
-                setUser(response.user);
-                toast.success(response.message || 'Profile updated successfully');
-                return true;
-            } else {
-                toast.error(response.message || 'Profile update failed');
-                return false;
-            }
-        } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Profile update failed';
-            toast.error(errorMessage);
-            return false;
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    console.log('🔄 AuthProvider render - Current state:', {
+        user: user ? { name: user.name, email: user.email, role: user.role } : null,
+        isInitialized,
+        isLoading
+    });
 
     const value = {
         user,
@@ -144,8 +187,7 @@ export const AuthProvider = ({ children }) => {
         isInitialized,
         login,
         register,
-        logout,
-        updateProfile
+        logout
     };
 
     return (
