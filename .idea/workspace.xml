@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="add initial API routes, environment configuration, and product model">
-      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" />
+    <list default="true" id="a52c4aa5-be71-4cbd-99b0-ca1ddc36c3b2" name="Changes" comment="add package.json with initial dependencies and scripts">
+      <change afterPath="$PROJECT_DIR$/backend/scripts/createAdmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SimpleAdminTest.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/product/ProductCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/product/ProductCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/ProductContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ProductDetail.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +60,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/pages" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,7 +81,7 @@
       <updated>1757635570059</updated>
       <workItem from="1757635571167" duration="2436000" />
       <workItem from="1757638528637" duration="83000" />
-      <workItem from="1757643003031" duration="11512000" />
+      <workItem from="1757643003031" duration="16782000" />
     </task>
     <task id="LOCAL-00001" summary="add About component with introductory content">
       <option name="closed" value="true" />
@@ -184,7 +195,31 @@
       <option name="project" value="LOCAL" />
       <updated>1757780193859</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update workspace configuration and add task metadata for API routes and environment files">
+      <option name="closed" value="true" />
+      <created>1757780667060</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780667060</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add authentication controller with user registration, login, and profile management">
+      <option name="closed" value="true" />
+      <created>1757780907149</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780907149</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add package.json with initial dependencies and scripts">
+      <option name="closed" value="true" />
+      <created>1757780919596</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780919596</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +240,9 @@
     <MESSAGE value="update project configuration and add task metadata for initial components" />
     <MESSAGE value="add .env files to .gitignore to exclude environment configuration" />
     <MESSAGE value="add initial API routes, environment configuration, and product model" />
-    <option name="LAST_COMMIT_MESSAGE" value="add initial API routes, environment configuration, and product model" />
+    <MESSAGE value="update workspace configuration and add task metadata for API routes and environment files" />
+    <MESSAGE value="add authentication controller with user registration, login, and profile management" />
+    <MESSAGE value="add package.json with initial dependencies and scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="add package.json with initial dependencies and scripts" />
   </component>
 </project>
