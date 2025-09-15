@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBagIcon, HeartIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ShoppingBagIcon, HeartIcon, Bars3Icon, XMarkIcon, CogIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import AuthModal from '../auth/AuthModal';
@@ -67,11 +67,27 @@ const Header = () => {
                                         )}
                                     </Link>
 
+                                    {/* Admin Link - Only show for admin users */}
+                                    {user.role === 'admin' && (
+                                        <Link
+                                            to="/admin"
+                                            className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                                            title="Admin Panel"
+                                        >
+                                            <CogIcon className="w-6 h-6" />
+                                        </Link>
+                                    )}
+
                                     <div className="flex items-center space-x-2">
                                         <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                                             {user.avatar}
                                         </div>
-                                        <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                                            {user.role === 'admin' && (
+                                                <span className="text-xs text-blue-600 font-medium">Admin</span>
+                                            )}
+                                        </div>
                                         <button
                                             onClick={logout}
                                             className="text-sm text-gray-500 hover:text-red-500 ml-2"
@@ -131,6 +147,15 @@ const Header = () => {
                                             <ShoppingBagIcon className="w-4 h-4 mr-2" />
                                             Cart ({cartItemsCount})
                                         </Link>
+
+                                        {/* Admin Link for Mobile */}
+                                        {user.role === 'admin' && (
+                                            <Link to="/admin" className="text-blue-600 hover:text-blue-700 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                                                <CogIcon className="w-4 h-4 mr-2" />
+                                                Admin Panel
+                                            </Link>
+                                        )}
+
                                         <button
                                             onClick={() => { logout(); setIsMenuOpen(false); }}
                                             className="text-left text-red-500 hover:text-red-600"
