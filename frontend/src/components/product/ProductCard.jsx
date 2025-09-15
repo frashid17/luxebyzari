@@ -71,7 +71,7 @@ const ProductCard = ({ product }) => {
 
             {/* Product Info */}
             <div className="p-4">
-                <Link to={`/product/${product.id}`}>
+                <Link to={`/product/${product._id}`}>
                     <h3 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors mb-2 line-clamp-2">
                         {product.name}
                     </h3>
